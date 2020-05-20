@@ -63,12 +63,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			<nav class="main-nav float-right d-none d-lg-block">
 				<ul>
-					<li class="active"><a href="#intro">Beranda</a></li>
-					<li><a href="#about">Tentang Kami</a></li>
-					<li><a href="#services">Program Kerja</a></li>
-					<li><a href="#portfolio">News</a></li>
-					<li><a href="#team">Kepengurusan</a></li>
-					<li><a href="#footer">Hubungi Kami</a></li>
+					<li class="active"><a href="<?= base_url();?>#intro">Beranda</a></li>
+					<li><a href="<?= base_url();?>#about">Tentang Kami</a></li>
+					<li><a href="<?= base_url();?>#services">Program Kerja</a></li>
+					<li><a href="<?= base_url();?>#portfolio">News</a></li>
+					<li><a href="<?= base_url();?>#team">Kepengurusan</a></li>
+					<li><a href="<?= base_url();?>#footer">Hubungi Kami</a></li>
 				</ul>
 			</nav><!-- .main-nav -->
 		</div>
