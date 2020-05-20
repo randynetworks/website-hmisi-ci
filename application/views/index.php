@@ -213,7 +213,7 @@
 						Teknologi yang menarik bagi Temen Temen Semua. Kunjungi sekarang! .</p>
 				</div>
 				<div class="col-lg-3 cta-btn-container text-center">
-					<a class="cta-btn align-middle" href="berita.html">Mulai Menjelajah Berita</a>
+					<a class="cta-btn align-middle" href="<?= base_url().'news';?>">Mulai Menjelajah Berita</a>
 				</div>
 			</div>
 
@@ -278,9 +278,6 @@
 						</div>
 					</div>
 				</div>
-
-			</div>
-			<div class="row">
 
 				<div class="col-lg-3 col-md-6 wow fadeInUp">
 					<div class="member">

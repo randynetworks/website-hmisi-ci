@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['news'] = 'news';
+
 $route['proker/(:any)'] = 'proker/view/$1';
 
 $route['default_controller'] = 'welcome';

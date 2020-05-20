@@ -4,6 +4,14 @@ class News_model extends CI_Model{
         $this->load->database();
     }
 
+    public function all_news(){
+        $query = $this->db->get('news',5);
+        // menggunakan result array karena data > 1
+        return $query->result_array();
+
+        // NOTES : TINGGAL BUAT PAGINATION
+    }
+
     public function get_News($slug = FALSE){
         
         if ($slug == FALSE) {
