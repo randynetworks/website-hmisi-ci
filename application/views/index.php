@@ -231,101 +231,19 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-3 col-md-6 wow fadeInUp">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/daniel.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Iqbal Daniel A</h4>
-								<span>Ketua Himpunan 2019</span>
+				<? foreach ($members as $member ) : ?>
+					<div class="col-lg-3 col-md-6 wow fadeInUp">
+						<div class="member">
+							<img src="<?= base_url(). '/assets/img/SO/' . $member['img'];?>" class="img-fluid" alt="">
+							<div class="member-info">
+								<div class="member-info-content">
+									<h4><?= $member['nama-lengkap'];?></h4>
+									<span><?= $member['jabatan'];?></span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/friyal.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Friyal Yusriyah S</h4>
-								<span>Wakil Ketua Himpunan 2019</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/resita.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Resita Ramadhani</h4>
-								<span>Sekretaris</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/devina.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Devina Aulia</h4>
-								<span>Bendahara</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/mihyi.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Muhyidin Yahya</h4>
-								<span>Ketua Divisi Pendekar</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/aisah.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Aisah Mirwana</h4>
-								<span>Ketua Divisi Litbang</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/harri.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Harry Wilson</h4>
-								<span>Ketua Divisi Humas</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-					<div class="member">
-						<img src="<?= base_url();?>/assets/img/SO/fahmi.png" class="img-fluid" alt="">
-						<div class="member-info">
-							<div class="member-info-content">
-								<h4>Fahmi</h4>
-								<span>Ketua Divisi Danus</span>
-							</div>
-						</div>
-					</div>
-				</div>
+				<? endforeach;?>
 			</div>
 		</div>
 	</section><!-- #team -->
