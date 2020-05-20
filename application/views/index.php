@@ -78,10 +78,10 @@
 				<?foreach ($prokers as $proker) : ?>
 				<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
 					<div class="box">
-						<div class="icon" style="background: <?= $proker['bg'];?>;"><i
-								class="ion-ios-<?= $proker['icon'];?>" style="color: <?= $proker['color'];?>;"></i>
+						<div class="icon" style="background: <?= $proker['bg'];?>;">
+							<i class="ion-ios-<?= $proker['icon'];?>" style="color: <?= $proker['color'];?>;"></i>
 						</div>
-						<h4 class="title"><a href=""><?= $proker['title'];?></a></h4>
+						<h4 class="title"><a href="<?= site_url('proker/'. $proker['slug']);?>"><?= $proker['title'];?></a></h4>
 						<p class="description"><?= $proker['text'];?></p>
 					</div>
 				</div>
