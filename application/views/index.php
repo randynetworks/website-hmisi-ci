@@ -261,7 +261,7 @@
 					global.</p>
 			</div>
 			<div class="col-lg-3 cta-btn-container text-center">
-				<a class="cta-btn align-middle" href="anggota.html">Anggota Kami</a>
+				<a class="cta-btn align-middle" href="<?= base_url().'anggota';?>">Anggota Kami</a>
 			</div>
 		</div>
 

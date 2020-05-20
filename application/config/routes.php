@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['anggota'] = 'anggota/view';
+
 $route['news'] = 'news';
 
 $route['proker/(:any)'] = 'proker/view/$1';
