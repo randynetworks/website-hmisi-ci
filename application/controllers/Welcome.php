@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	public function __construct(){
         parent::__construct();
         $this->load->model('proker_model');
+        $this->load->model('news_model');
         $this->load->helper('url_helper');
         
     }
@@ -13,6 +14,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data['prokers'] = $this->proker_model->get_Proker();
+		$data['news']    = $this->news_model->get_news();
 		
 		$this->load->helper('url');
 		$this->load->view('templates/header');

@@ -81,7 +81,8 @@
 						<div class="icon" style="background: <?= $proker['bg'];?>;">
 							<i class="ion-ios-<?= $proker['icon'];?>" style="color: <?= $proker['color'];?>;"></i>
 						</div>
-						<h4 class="title"><a href="<?= site_url('proker/'. $proker['slug']);?>"><?= $proker['title'];?></a></h4>
+						<h4 class="title"><a
+								href="<?= site_url('proker/'. $proker['slug']);?>"><?= $proker['title'];?></a></h4>
 						<p class="description"><?= $proker['text'];?></p>
 					</div>
 				</div>
@@ -183,25 +184,19 @@
 			</header>
 			<br>
 			<div class="row">
-				<div class="col-lg-5 col-md-6">
-					<div class="about-img">
-						<img src="<?= base_url();?>/assets/img/bg1.jpg" alt="" class="img-fluid">
+				<?foreach ($news as $new) :?>
+					<div class="col-lg-5 col-md-6">
+						<div class="about-img">
+							<img src="<?= base_url().'/' .$new['img'];?>" alt="" class="img-fluid">
+						</div>
 					</div>
-				</div>
-				<div class="col-lg-7 col-md-6">
-					<div class="about-content">
-						<h3>Pentingnya Coding</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt officia nesciunt voluptates
-							accusamus, iure culpa, omnis qui, dicta explicabo nostrum quasi quam architecto facilis
-							porro! Excepturi sed explicabo minima blanditiis?
-							Error, ea animi iure quas architecto odit itaque deleniti tempore dicta voluptatem, nobis
-							eius beatae nulla, esse quod recusandae cumque labore. Adipisci esse officia velit aut atque
-							nemo, soluta quasi.
-							Ea quibusdam quas perferendis quia? Rerum suscipit excepturi ipsum delectus ad, maxime
-							reiciendis veritatis dicta deserunt modi ut natus recusandae enim doloremque iusto vel cum
-							unde distinctio non dignissimos fugit? </p>
+					<div class="col-lg-7 col-md-6">
+						<div class="about-content">
+							<h3><?= $new['title'];?></h3>
+							<p><?= $new['text'];?></p>
+						</div>
 					</div>
-				</div>
+				<?endforeach;?>
 			</div>
 		</div>
 	</section><!-- #news -->
