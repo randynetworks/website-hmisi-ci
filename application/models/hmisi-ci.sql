@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 20, 2020 at 05:30 AM
+-- Generation Time: May 21, 2020 at 12:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -114,6 +114,51 @@ INSERT INTO `proker` (`id`, `slug`, `title`, `text`, `bg`, `color`, `icon`) VALU
 (5, 'bakti-sosial', 'Bakti Sosial', 'Tidak hanya sebagai Himpunan Mahasiswa semata, kami mengadakan Bakti sosial untuk membantu satusama lain.', '#e1eeff', '#2282ff', 'world-outline'),
 (6, 'matmi-project', 'MAT&MI Project', 'MAT&MI Project adalah Unit Usaha HMISI dimana Kami memiliki Marchendaise untuk di Jual dan Juga menjual jasa IT lainnya.', '#ecebff', '#8660fe', 'clock-outline');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `image` varchar(128) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `is_active` int(1) NOT NULL,
+  `date_created` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
+(1, 'Randy Ramadan', 'randy@gmail.com', 'default.jpg', '$2y$10$6HGfoYMjYQixxTBW0NBx3uvefVFtxdF1DpUd6xE6k/WLdEjRyV5/O', 2, 1, 1590054309),
+(2, 'Rikudo', 'rikudo@gmail.com', 'default.jpg', '$2y$10$k19lijtPP/m0VlDSTEtvgeZ1UsFNbNUtjRVr0IEOEgjRrrjrWtJdG', 2, 1, 1590054707),
+(3, 'Paul McCartney', 'paul.mcartney@gmail.com', 'default.jpg', '$2y$10$gU/3nS1Cn88FlbFdjrtWfedZjewgD1R.8pbQWZgROoJDDTS4gJ3Iy', 2, 1, 1590057427);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `id` int(11) NOT NULL,
+  `role` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`id`, `role`) VALUES
+(1, 'administrator'),
+(2, 'member');
+
 --
 -- Indexes for dumped tables
 --
@@ -137,6 +182,18 @@ ALTER TABLE `proker`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -157,6 +214,18 @@ ALTER TABLE `news`
 --
 ALTER TABLE `proker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_role`
+--
+ALTER TABLE `user_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
