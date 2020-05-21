@@ -6,13 +6,13 @@
 
 		<div class="row justify-content-center align-self-center">
 			<div class="col-md-6 intro-info order-md-first order-last">
-				<h2>Student Today<br>Leader<span> Tomorrow.</span></h2>
-				<div>
-					<a href="#about" class="btn-get-started scrollto">Get Started</a>
-				</div>
+				<h2>Selamat Datang<br><span> <?= $user['name'] ?>.</span></h2>
+
+				<a href="<?= base_url('auth/logout'); ?>" class="btn-get-started scrollto">Log Out</a>
+				<a href="#about" class="btn-get-started scrollto">Get Started</a>
 			</div>
 			<div class="col-md-6 pl-5 intro-img order-md-last order-first">
-				<img src="<?= base_url();?>/assets/img/HMISI.png" alt="" class="img-fluid" height="400px" width="400px">
+				<img src="<?= base_url(); ?>/assets/img/HMISI.png" alt="" class="img-fluid" height="400px" width="400px">
 			</div>
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 
 				<div class="col-lg-5 col-md-6">
 					<div class="about-img">
-						<img src="<?= base_url();?>/assets/img/MAKRAB.JPG" alt="" class="img-fluid">
+						<img src="<?= base_url(); ?>/assets/img/MAKRAB.JPG" alt="" class="img-fluid">
 					</div>
 				</div>
 
@@ -75,18 +75,17 @@
 
 			<div class="row">
 
-				<?foreach ($prokers as $proker) : ?>
-				<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-					<div class="box">
-						<div class="icon" style="background: <?= $proker['bg'];?>;">
-							<i class="ion-ios-<?= $proker['icon'];?>" style="color: <?= $proker['color'];?>;"></i>
+				<? foreach ($prokers as $proker) : ?>
+					<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+						<div class="box">
+							<div class="icon" style="background: <?= $proker['bg']; ?>;">
+								<i class="ion-ios-<?= $proker['icon']; ?>" style="color: <?= $proker['color']; ?>;"></i>
+							</div>
+							<h4 class="title"><a href="<?= site_url('proker/' . $proker['slug']); ?>"><?= $proker['title']; ?></a></h4>
+							<p class="description"><?= $proker['text']; ?></p>
 						</div>
-						<h4 class="title"><a
-								href="<?= site_url('proker/'. $proker['slug']);?>"><?= $proker['title'];?></a></h4>
-						<p class="description"><?= $proker['text'];?></p>
 					</div>
-				</div>
-				<?endforeach;?>
+				<? endforeach; ?>
 
 			</div>
 		</div>
@@ -107,7 +106,7 @@
 
 				<div class="col-lg-6">
 					<div class="why-us-img">
-						<img src="<?= base_url();?>/assets/img/rapat.jpg" alt="" class="img-fluid">
+						<img src="<?= base_url(); ?>/assets/img/rapat.jpg" alt="" class="img-fluid">
 					</div>
 				</div>
 
@@ -184,19 +183,19 @@
 			</header>
 			<br>
 			<div class="row">
-				<?foreach ($news as $new) :?>
+				<? foreach ($news as $new) : ?>
 					<div class="col-lg-5 col-md-6">
 						<div class="about-img">
-							<img src="<?= base_url().'/' .$new['img'];?>" alt="" class="img-fluid">
+							<img src="<?= base_url() . '/' . $new['img']; ?>" alt="" class="img-fluid">
 						</div>
 					</div>
 					<div class="col-lg-7 col-md-6">
 						<div class="about-content">
-							<h3><?= $new['title'];?></h3>
-							<p><?= $new['text'];?></p>
+							<h3><?= $new['title']; ?></h3>
+							<p><?= $new['text']; ?></p>
 						</div>
 					</div>
-				<?endforeach;?>
+				<? endforeach; ?>
 			</div>
 		</div>
 	</section><!-- #news -->
@@ -213,7 +212,7 @@
 						Teknologi yang menarik bagi Temen Temen Semua. Kunjungi sekarang! .</p>
 				</div>
 				<div class="col-lg-3 cta-btn-container text-center">
-					<a class="cta-btn align-middle" href="<?= base_url().'news';?>">Mulai Menjelajah Berita</a>
+					<a class="cta-btn align-middle" href="<?= base_url() . 'news'; ?>">Mulai Menjelajah Berita</a>
 				</div>
 			</div>
 
@@ -231,19 +230,19 @@
 			</div>
 
 			<div class="row">
-				<? foreach ($members as $member ) : ?>
+				<? foreach ($members as $member) : ?>
 					<div class="col-lg-3 col-md-6 wow fadeInUp">
 						<div class="member">
-							<img src="<?= base_url(). '/assets/img/SO/' . $member['img'];?>" class="img-fluid" alt="">
+							<img src="<?= base_url() . '/assets/img/SO/' . $member['img']; ?>" class="img-fluid" alt="">
 							<div class="member-info">
 								<div class="member-info-content">
-									<h4><?= $member['nama-lengkap'];?></h4>
-									<span><?= $member['jabatan'];?></span>
+									<h4><?= $member['nama-lengkap']; ?></h4>
+									<span><?= $member['jabatan']; ?></span>
 								</div>
 							</div>
 						</div>
 					</div>
-				<? endforeach;?>
+				<? endforeach; ?>
 			</div>
 		</div>
 	</section><!-- #team -->
@@ -261,7 +260,7 @@
 					global.</p>
 			</div>
 			<div class="col-lg-3 cta-btn-container text-center">
-				<a class="cta-btn align-middle" href="<?= base_url().'anggota';?>">Anggota Kami</a>
+				<a class="cta-btn align-middle" href="<?= base_url() . 'anggota'; ?>">Anggota Kami</a>
 			</div>
 		</div>
 
