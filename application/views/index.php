@@ -8,11 +8,30 @@
 			<div class="col-md-6 intro-info order-md-first order-last">
 				<h2>Selamat Datang<br><span> <?= $user['name'] ?>.</span></h2>
 
-				<a href="<?= base_url('auth/logout'); ?>" class="btn-get-started scrollto">Log Out</a>
+				<a href="" class="btn-get-started scrollto" data-toggle="modal" data-target="#logoutModal">Log Out</a>
 				<a href="#about" class="btn-get-started scrollto">Get Started</a>
 			</div>
 			<div class="col-md-6 pl-5 intro-img order-md-last order-first">
 				<img src="<?= base_url(); ?>/assets/img/HMISI.png" alt="" class="img-fluid" height="400px" width="400px">
+			</div>
+
+			<!-- Logout Modal-->
+			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+							<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+							<a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

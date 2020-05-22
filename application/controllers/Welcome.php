@@ -16,7 +16,19 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		// ambil session
-		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$ses_id = $this->session->userdata('email');
+		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+
+		if (empty($ses_id)) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+			</div>'
+			);
+			redirect('auth');
+		}
+
 
 		$data['prokers'] = $this->proker_model->get_Proker();
 		$data['news']    = $this->news_model->get_news();

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <!DOCTYPE html>
@@ -13,26 +13,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta content="" name="description">
 
 	<!-- Favicons -->
-	<link href="<?= base_url();?>/assets/img/favicon.png" rel="icon">
-	<link href="<?= base_url();?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+	<link rel="icon" href="<?= base_url('assets/'); ?>img/HMISI.png">
+	<link href="<?= base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
-	<link
-		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
 	<!-- Bootstrap CSS File -->
-	<link href="<?= base_url();?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Libraries CSS Files -->
-	<link href="<?= base_url();?>/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?= base_url();?>/assets/lib/animate/animate.min.css" rel="stylesheet">
-	<link href="<?= base_url();?>/assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="<?= base_url();?>/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-	<link href="<?= base_url();?>/assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/animate/animate.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
 	<!-- Main Stylesheet File -->
-	<link href="<?= base_url();?>/assets/css/style.css" rel="stylesheet">
+	<link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,8 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="social-links">
 					<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 					<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="github"><i class="fa fa-github"></i></a>
-					<a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+					<a href="https://github.com/hmisippg" class="github"><i class="fa fa-github"></i></a>
+					<a href="https://www.instagram.com/hmisippg/" class="instagram"><i class="fa fa-instagram"></i></a>
 				</div>
 			</div>
 		</div>
@@ -63,12 +61,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			<nav class="main-nav float-right d-none d-lg-block">
 				<ul>
-					<li class="active"><a href="<?= base_url();?>#intro">Beranda</a></li>
-					<li><a href="<?= base_url();?>#about">Tentang Kami</a></li>
-					<li><a href="<?= base_url();?>#services">Program Kerja</a></li>
-					<li><a href="<?= base_url();?>#portfolio">News</a></li>
-					<li><a href="<?= base_url();?>#team">Kepengurusan</a></li>
-					<li><a href="<?= base_url();?>#footer">Hubungi Kami</a></li>
+					<li class="active"><a href="#intro">Beranda</a></li>
+					<li><a href="#about">Tentang Kami</a></li>
+					<li><a href="#services">Program Kerja</a></li>
+					<li><a href="#portfolio">News</a></li>
+					<li><a href="#team">Kepengurusan</a></li>
+					<li><a href="#footer">Hubungi Kami</a></li>
 				</ul>
 			</nav><!-- .main-nav -->
 		</div>
