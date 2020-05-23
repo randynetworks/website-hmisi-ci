@@ -89,6 +89,7 @@ class Input_Member extends CI_Controller
 
         $this->form_validation->set_rules('full-name', 'Full Name', 'required');
         $this->form_validation->set_rules('depart', 'Department', 'required');
+        $this->form_validation->set_rules('image', 'Image', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->helper('url');
@@ -109,5 +110,19 @@ class Input_Member extends CI_Controller
             );
             redirect('Input_Member');
         }
+    }
+
+    public function hapus($id)
+    {
+        $where = array('id' => $id);
+
+        $this->anggota_model->hapus_data($where, 'anggota');
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">
+                Member deleted!
+            </div>'
+        );
+        redirect('Input_Member');
     }
 }

@@ -20,6 +20,7 @@ class Welcome extends CI_Controller
 
 
 		$data['prokers'] = $this->proker_model->get_Proker();
+		$data['members'] = $this->anggota_model->get_Pengurus();
 		$data['news']    = $this->news_model->get_news();
 
 		$this->load->helper('url');

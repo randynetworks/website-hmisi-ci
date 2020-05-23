@@ -61,7 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 			<nav class="main-nav float-right d-none d-lg-block">
 				<ul>
-					<li class="active"><a href="#intro">Beranda</a></li>
+					<li class="active"><a href="<?= base_url('welcome') ?>#intro">Beranda</a></li>
 					<li><a href="#about">Tentang Kami</a></li>
 					<li><a href="#services">Program Kerja</a></li>
 					<li><a href="#portfolio">News</a></li>

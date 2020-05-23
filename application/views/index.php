@@ -186,7 +186,7 @@
 				<? foreach ($news as $new) : ?>
 					<div class="col-lg-5 col-md-6">
 						<div class="about-img">
-							<img src="<?= base_url() . '/' . $new['img']; ?>" alt="" class="img-fluid">
+							<img src="<?= base_url('assets/img/') . $new['img']; ?>" alt="" class="img-fluid">
 						</div>
 					</div>
 					<div class="col-lg-7 col-md-6">
