@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Input_Member extends CI_Controller
 {
 
+
     public function __construct()
     {
         parent::__construct();
@@ -12,6 +13,7 @@ class Input_Member extends CI_Controller
         $this->load->library('pagination');
         $this->load->model('anggota_model');
     }
+
 
     public function index()
     {
@@ -51,7 +53,6 @@ class Input_Member extends CI_Controller
         // initialisasi
         $this->pagination->initialize($config);
 
-
         $ses_id = $this->session->userdata('email');
         $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
         $data['title'] = "Member HMISI";
@@ -71,7 +72,6 @@ class Input_Member extends CI_Controller
         }
 
 
-
         $this->load->helper('url');
         $this->load->view('templates/dashboard_header', $data);
         $this->load->view('templates/dashboard_sidebar', $data);
@@ -81,31 +81,33 @@ class Input_Member extends CI_Controller
     }
 
 
-    public function edit_anggota()
+    public function create()
     {
-        $ses_id = $this->session->userdata('email');
-        $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
-        $data['title'] = "Edit Anggota HMISI";
 
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 
+        $this->form_validation->set_rules('full-name', 'Full Name', 'required');
+        $this->form_validation->set_rules('depart', 'Department', 'required');
 
-        if (empty($ses_id)) {
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->helper('url');
+
             $this->session->set_flashdata(
                 'message',
-                '<div class="alert alert-danger" role="alert">
-				Oupps, you\'re not Login!
-			</div>'
+                '<div class="alert alert-warning" role="alert">
+                    Member failed Saved!
+                </div>'
             );
-            redirect('auth');
+        } else {
+            $this->anggota_model->set_member();
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success" role="alert">
+                    Member Saved!
+                </div>'
+            );
+            redirect('Input_Member');
         }
-
-
-
-        $this->load->helper('url');
-        $this->load->view('templates/dashboard_header', $data);
-        $this->load->view('templates/dashboard_sidebar', $data);
-        $this->load->view('templates/dashboard_topbar', $data);
-        $this->load->view('admin/edit_anggota', $data);
-        $this->load->view('templates/dashboard_footer');
     }
 }

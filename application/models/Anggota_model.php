@@ -34,4 +34,16 @@ class Anggota_model extends CI_Model
     {
         return $this->db->get('anggota')->num_rows();
     }
+
+    public function set_member()
+    {
+        $this->load->helper('url');
+
+        $data = array(
+            'nama-lengkap' => $this->input->post('full-name'),
+            'jabatan' => $this->input->post('depart')
+        );
+
+        return $this->db->insert('anggota', $data);
+    }
 }

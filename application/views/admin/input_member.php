@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-
+        <?= $this->session->flashdata('message'); ?>
         <button class="btn btn-primary" data-toggle="modal" data-target="#add-data"><i class="fa fa-plus"> Add New Member</i></button>
 
         <br><br>
@@ -63,28 +63,28 @@
                 </div>
                 <div class="modal-body">
                     <!-- input form -->
-                    <form>
+                    <form method="POST" action="<?= base_url('Input_Member/create'); ?>">
                         <div class="card shadow">
                             <div class="card-body mb-4 p-4">
                                 <div class="form-group">
                                     <label for="fullname">Full Name</label>
-                                    <input type="text" class="form-control" id="fullname" placeholder="Please Input Full Name Member.">
+                                    <input name="full-name" type="text" class="form-control" id="fullname" placeholder="Please Input Full Name Member.">
                                 </div>
                                 <div class="form-group">
                                     <label for="department">Department</label>
-                                    <input type="text" class="form-control" id="department" placeholder="Please Input Department">
+                                    <input name="depart" type="text" class="form-control" id="department" placeholder="Please Input Department">
                                 </div>
                                 <div class="form-group">
 
                                     <label for="department">Upload Image</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="upload-image">
-                                        <label class="custom-file-label" for="upload-image">Choose file</label>
+                                        <label name="img" class="custom-file-label" for="upload-image">Choose file</label>
                                     </div>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary"><i class="far fa-save"> Submit</i></button>
-                                    <button type="submit" class="btn btn-warning"><i class="fas fa-redo-alt"> Reset</i></button>
+                                    <button type="reset" class="btn btn-warning"><i class="fas fa-redo-alt"> Reset</i></button>
                                 </div>
                             </div>
                         </div>
