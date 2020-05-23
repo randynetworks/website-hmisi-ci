@@ -15,6 +15,7 @@ class Input_Member extends CI_Controller
         $ses_id = $this->session->userdata('email');
         $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
         $data['title'] = "Input Member HMISI";
+        $data['members'] = $this->db->get('anggota')->result_array();
 
         if (empty($ses_id)) {
             $this->session->set_flashdata(

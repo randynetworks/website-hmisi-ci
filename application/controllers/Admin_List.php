@@ -26,6 +26,8 @@ class Admin_List extends CI_Controller
             redirect('auth');
         }
 
+        $data['admin_list'] = $this->db->get('user')->result_array();
+
         $this->load->helper('url');
         $this->load->view('templates/dashboard_header', $data);
         $this->load->view('templates/dashboard_sidebar', $data);

@@ -29,7 +29,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        User Management
+        Admin Management
     </div>
     <!-- Nav Item - list admin account -->
     <li class="nav-item">
@@ -45,15 +45,8 @@
             <span>List Admin Account</span></a>
     </li>
 
-
-    <!-- Nav Item - list user account -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('User_List'); ?>">
-            <i class="fas fa-fw fa-user-friends"></i>
-            <span>List User Account</span></a>
-    </li>
-
-
+    <!-- Divider -->
+    <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
