@@ -54,7 +54,7 @@ class Input_Member extends CI_Controller
 
         $ses_id = $this->session->userdata('email');
         $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
-        $data['title'] = "Input Member HMISI";
+        $data['title'] = "Member HMISI";
         $data['start'] = $this->uri->segment(3);
         $data['members'] = $this->anggota_model->get_page($config['per_page'], $data['start']);
 
@@ -77,6 +77,35 @@ class Input_Member extends CI_Controller
         $this->load->view('templates/dashboard_sidebar', $data);
         $this->load->view('templates/dashboard_topbar', $data);
         $this->load->view('admin/input_member', $data);
+        $this->load->view('templates/dashboard_footer');
+    }
+
+
+    public function edit_anggota()
+    {
+        $ses_id = $this->session->userdata('email');
+        $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+        $data['title'] = "Edit Anggota HMISI";
+
+
+
+        if (empty($ses_id)) {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+			</div>'
+            );
+            redirect('auth');
+        }
+
+
+
+        $this->load->helper('url');
+        $this->load->view('templates/dashboard_header', $data);
+        $this->load->view('templates/dashboard_sidebar', $data);
+        $this->load->view('templates/dashboard_topbar', $data);
+        $this->load->view('admin/edit_anggota', $data);
         $this->load->view('templates/dashboard_footer');
     }
 }
