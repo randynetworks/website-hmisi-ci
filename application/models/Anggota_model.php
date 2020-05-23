@@ -20,4 +20,18 @@ class Anggota_model extends CI_Model
         // menggunakan result array karena data > 1
         return $query->result_array();
     }
+
+    // pagination
+
+    public function get_page($limit, $start)
+    {
+        $query = $this->db->get('anggota', $limit, $start);
+        // menggunakan result array karena data > 1
+        return $query->result_array();
+    }
+
+    public function countAllMember()
+    {
+        return $this->db->get('anggota')->num_rows();
+    }
 }

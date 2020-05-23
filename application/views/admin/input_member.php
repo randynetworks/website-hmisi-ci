@@ -48,6 +48,7 @@
                     <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Image</th>
                                 <th>Full Name</th>
                                 <th>Department</th>
@@ -55,8 +56,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? foreach ($members as $member) : ?>
+                            <?
+                            foreach ($members as $member) : ?>
                                 <tr>
+                                    <td class="align-middle"><?= ++$start; ?></td>
                                     <td class="align-middle"><img height="100px" width="100px" src="<?= base_url('assets/img/SO/') . $member['img']; ?>" alt=""></td>
                                     <td class="align-middle"><?= $member['nama-lengkap']; ?></td>
                                     <td class="align-middle"><?= $member['jabatan']; ?></td>
@@ -66,9 +69,10 @@
                                     </td>
                                 </tr>
                             <? endforeach; ?>
-
                         </tbody>
                     </table>
+                    <br>
+                    <?= $this->pagination->create_links(); ?>
                 </div>
             </div>
         </div>
