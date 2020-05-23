@@ -19,7 +19,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url('dashboard') ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -32,15 +32,15 @@
         User Management
     </div>
     <!-- Nav Item - list admin account -->
-    <li class="nav-item active">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('Admin_Profile'); ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Admin Profile</span></a>
     </li>
 
     <!-- Nav Item - list admin account -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('Admin_List'); ?>">
             <i class="fas fa-fw fa-users-cog"></i>
             <span>List Admin Account</span></a>
     </li>
@@ -48,7 +48,7 @@
 
     <!-- Nav Item - list user account -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('User_List'); ?>">
             <i class="fas fa-fw fa-user-friends"></i>
             <span>List User Account</span></a>
     </li>
@@ -62,18 +62,18 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span>
         </a>
         <div id="collapsePages" class="collapse hide" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Anggota HMISI:</h6>
-                <a class="collapse-item" href="">Input Member</a>
+                <a class="collapse-item" href="<?= base_url('Input_Member'); ?>">Input Member</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Input:</h6>
-                <a class="collapse-item" href="404.html">Input Proker</a>
-                <a class="collapse-item active" href="blank.html">Input Berita</a>
+                <a class="collapse-item" href="<?= base_url('Input_Proker'); ?>">Input Proker</a>
+                <a class="collapse-item" href="<?= base_url('Input_Berita'); ?>">Input Berita</a>
             </div>
         </div>
     </li>
@@ -83,7 +83,7 @@
 
     <!-- Nav Item - logout account -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('auth/logout') ?>">
+        <a class="nav-link" href="<?= base_url('auth/logout') ?>" data-toggle="modal" data-target="#logoutModal">
             <i class="fas fa-sign-out-alt"></i>
             <span>logout</span></a>
     </li>
