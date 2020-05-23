@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 21, 2020 at 12:40 PM
+-- Generation Time: May 23, 2020 at 12:06 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -60,7 +60,7 @@ INSERT INTO `anggota` (`id`, `img`, `nama-lengkap`, `jabatan`) VALUES
 (19, 'rifky.png', 'Rifky', 'anggota'),
 (20, 'riki_rahman.png', 'Riki Rahman', 'anggota'),
 (21, 'syam.png', 'Syam', 'anggota'),
-(22, 'viki.png', 'Viki', 'anggota');
+(31, 'viki.png', 'Viki', 'anggota');
 
 -- --------------------------------------------------------
 
@@ -83,8 +83,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `img`, `slug`, `create_by`, `time`, `title`, `text`) VALUES
-(1, '/assets/img/bg1.jpg', 'pentingnya-coding', 'Randy', '2020-05-20 02:16:48', 'Pentingnya Coding', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt officia nesciunt voluptates accusamus, iure culpa, omnis qui, dicta explicabo nostrum quasi quam architecto facilis porro! Excepturi sed explicabo minima blanditiis? Error, ea animi iure quas architecto odit itaque deleniti tempore dicta voluptatem, nobis eius beatae nulla, esse quod recusandae cumque labore. Adipisci esse officia velit aut atque nemo, soluta quasi. Ea quibusdam quas perferendis quia? Rerum suscipit excepturi ipsum delectus ad, maxime reiciendis veritatis dicta deserunt modi ut natus recusandae enim doloremque iusto vel cum unde distinctio non dignissimos fugit?'),
-(2, '/assets/img/bg1.jpg', 'jangan-lupa-titik-koma', 'naruto', '2020-05-20 02:16:48', 'jangan Lupa titik Koma', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt officia nesciunt voluptates accusamus, iure culpa, omnis qui, dicta explicabo nostrum quasi quam architecto facilis porro! Excepturi sed explicabo minima blanditiis? Error, ea animi iure quas architecto odit itaque deleniti tempore dicta voluptatem, nobis eius beatae nulla, esse quod recusandae cumque labore. Adipisci esse officia velit aut atque nemo, soluta quasi. Ea quibusdam quas perferendis quia? Rerum suscipit excepturi ipsum delectus ad, maxime reiciendis veritatis dicta deserunt modi ut natus recusandae enim doloremque iusto vel cum unde distinctio non dignissimos fugit?');
+(1, 'bg1.jpg', 'pentingnya-coding', 'Randy', '2020-05-20 02:16:48', 'Pentingnya Coding', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt officia nesciunt voluptates accusamus, iure culpa, omnis qui, dicta explicabo nostrum quasi quam architecto facilis porro! Excepturi sed explicabo minima blanditiis? Error, ea animi iure quas architecto odit itaque deleniti tempore dicta voluptatem, nobis eius beatae nulla, esse quod recusandae cumque labore. Adipisci esse officia velit aut atque nemo, soluta quasi. Ea quibusdam quas perferendis quia? Rerum suscipit excepturi ipsum delectus ad, maxime reiciendis veritatis dicta deserunt modi ut natus recusandae enim doloremque iusto vel cum unde distinctio non dignissimos fugit?'),
+(2, 'bg1.jpg', 'jangan-lupa-titik-koma', 'naruto', '2020-05-20 02:16:48', 'jangan Lupa titik Koma', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt officia nesciunt voluptates accusamus, iure culpa, omnis qui, dicta explicabo nostrum quasi quam architecto facilis porro! Excepturi sed explicabo minima blanditiis? Error, ea animi iure quas architecto odit itaque deleniti tempore dicta voluptatem, nobis eius beatae nulla, esse quod recusandae cumque labore. Adipisci esse officia velit aut atque nemo, soluta quasi. Ea quibusdam quas perferendis quia? Rerum suscipit excepturi ipsum delectus ad, maxime reiciendis veritatis dicta deserunt modi ut natus recusandae enim doloremque iusto vel cum unde distinctio non dignissimos fugit?');
 
 -- --------------------------------------------------------
 
@@ -136,9 +136,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Randy Ramadan', 'randy@gmail.com', 'default.jpg', '$2y$10$6HGfoYMjYQixxTBW0NBx3uvefVFtxdF1DpUd6xE6k/WLdEjRyV5/O', 2, 1, 1590054309),
-(2, 'Rikudo', 'rikudo@gmail.com', 'default.jpg', '$2y$10$k19lijtPP/m0VlDSTEtvgeZ1UsFNbNUtjRVr0IEOEgjRrrjrWtJdG', 2, 1, 1590054707),
-(3, 'Paul McCartney', 'paul.mcartney@gmail.com', 'default.jpg', '$2y$10$gU/3nS1Cn88FlbFdjrtWfedZjewgD1R.8pbQWZgROoJDDTS4gJ3Iy', 2, 1, 1590057427);
+(5, 'Randy Ramadhan', 'randyramadhan1973@gmail.com', 'randy.png', '$2y$10$rObNGlTF/hLGeGDRiE2W1e0Xjws35/W2hgREm3kJSpC0juHpK5vEe', 1, 1, 1590141596);
 
 -- --------------------------------------------------------
 
@@ -201,7 +199,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -219,7 +217,7 @@ ALTER TABLE `proker`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_role`
