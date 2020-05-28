@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 23, 2020 at 12:06 PM
+-- Generation Time: May 28, 2020 at 09:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -112,7 +112,72 @@ INSERT INTO `proker` (`id`, `slug`, `title`, `text`, `bg`, `color`, `icon`) VALU
 (3, 'malam-keakraban', 'Malam Keakraban', 'Kegiatan dimana kami dalam 1 malam saling terbuka dan mempererat kekeluargaan kami sebagai Himpunan.', '#e6fdfc', '#3fcdc7', 'paper-outline'),
 (4, 'seminar', 'Seminar', 'kegiatan Umum yang rutin kami lakukan agar informasi yang kita dapat, dapat di ketahui khalayak umum.', '#eafde7', '#41cf2e', 'speedometer-outline'),
 (5, 'bakti-sosial', 'Bakti Sosial', 'Tidak hanya sebagai Himpunan Mahasiswa semata, kami mengadakan Bakti sosial untuk membantu satusama lain.', '#e1eeff', '#2282ff', 'world-outline'),
-(6, 'matmi-project', 'MAT&MI Project', 'MAT&MI Project adalah Unit Usaha HMISI dimana Kami memiliki Marchendaise untuk di Jual dan Juga menjual jasa IT lainnya.', '#ecebff', '#8660fe', 'clock-outline');
+(6, 'matmi-project', 'MAT&MI Project', 'MAT&MI Project adalah Unit Usaha HMISI dimana Kami memiliki Marchendaise untuk di Jual dan Juga menjual jasa IT lainnya.', '#ecebff', '#8660fe', 'clock-outline'),
+(7, 'open-recruitment', 'Open Recruitment', 'Acara Merecrut Anggota Baru untuk HMISI setiap Tahun.', '#4dd0e1', '#006064', 'people-outline'),
+(8, 'alumni', 'Alumni', 'Kegiatan yang bersangkutan dengan alumni HMISI sebelumnya', '#004d40', '#80cbc4', 'user-outline');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `proker-img`
+--
+
+CREATE TABLE `proker-img` (
+  `id` int(11) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `img` varchar(256) NOT NULL,
+  `text` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `proker-img`
+--
+
+INSERT INTO `proker-img` (`id`, `slug`, `img`, `text`) VALUES
+(1, 'kurikulum-pembelajaran', 'pembelajaran.png', 'Belajar Web Programming'),
+(2, 'malam-keakraban', 'makrab.jpeg', 'Kegiatan MAKRAB 2019'),
+(3, 'malam-keakraban', 'makrab2.jpeg', 'Kegiatan MAKRAB 2019'),
+(4, 'malam-keakraban', 'makrab3.jpeg', 'Kegiatan MAKRAB 2019'),
+(5, 'malam-keakraban', 'makrab4.jpeg', 'Kegiatan MAKRAB 2019'),
+(6, 'malam-keakraban', 'makrab5.jpeg', 'Kegiatan MAKRAB 2019'),
+(7, 'malam-keakraban', 'makrab6.jpeg', 'Kegiatan MAKRAB 2019'),
+(8, 'malam-keakraban', 'makrab7.jpeg', 'Kegiatan MAKRAB 2019'),
+(9, 'malam-keakraban', 'makrab8.jpeg', 'Kegiatan MAKRAB 2019'),
+(10, 'malam-keakraban', 'makrab9.jpeg', 'Kegiatan MAKRAB 2019'),
+(11, 'malam-keakraban', 'makrab10.jpeg', 'Kegiatan MAKRAB 2019'),
+(13, 'kurikulum-pembelajaran', 'pembelajaran_web.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(14, 'kurikulum-pembelajaran', 'pembelajaran_web3.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(15, 'kurikulum-pembelajaran', 'pembelajaran_web2.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(16, 'kurikulum-pembelajaran', 'pembelajaran_web4.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(17, 'kurikulum-pembelajaran', 'pembelajaran_web5.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(18, 'kurikulum-pembelajaran', 'pembelajaran_web6.jpeg', 'Kegiatan Belajar Pemrograman WEB'),
+(19, 'seminar', 'seminar1.jpeg', 'Seminar International 2018'),
+(20, 'seminar', 'seminar2.jpeg', 'Seminar International 2018'),
+(21, 'seminar', 'seminar-mahasiswa-malay.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(22, 'seminar', 'seminar-mahasiswa-malay2.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(23, 'seminar', 'seminar-mahasiswa-malay3.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(24, 'seminar', 'seminar-mahasiswa-malay5.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(25, 'seminar', 'seminar-mahasiswa-malay6.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(26, 'seminar', 'seminar-mahasiswa-malay7.jpeg', 'Pertemuan dengan Mahasiswa Malaysia 2019'),
+(27, 'open-recruitment', 'oprek.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(28, 'open-recruitment', 'oprek2.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(29, 'open-recruitment', 'oprek3.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(30, 'open-recruitment', 'oprek4.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(31, 'open-recruitment', 'oprek5.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(32, 'open-recruitment', 'oprek6.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(33, 'open-recruitment', 'oprek7.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(34, 'open-recruitment', 'oprek8.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(35, 'open-recruitment', 'oprek8.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(36, 'open-recruitment', 'oprek9.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(37, 'open-recruitment', 'oprek10.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(38, 'open-recruitment', 'oprek11.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(39, 'open-recruitment', 'oprek12.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(40, 'open-recruitment', 'oprek13.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(41, 'open-recruitment', 'oprek14.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(42, 'open-recruitment', 'oprek15.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(43, 'open-recruitment', 'oprek16.jpeg', 'Kegiatan Open Recruitment HMISI 2019'),
+(44, 'open-recruitment', 'malaminagurasi.jpeg', 'Kegiatan Malam Inagurasi 2019'),
+(45, 'open-recruitment', 'malaminagurasi2.jpeg', 'Kegiatan Malam Inagurasi 2019');
 
 -- --------------------------------------------------------
 
@@ -180,6 +245,12 @@ ALTER TABLE `proker`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `proker-img`
+--
+ALTER TABLE `proker-img`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -211,7 +282,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `proker`
 --
 ALTER TABLE `proker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `proker-img`
+--
+ALTER TABLE `proker-img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `user`
