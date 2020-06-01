@@ -6,6 +6,15 @@ class Proker_model extends CI_Model
 		$this->load->database();
 	}
 
+	public function all_Proker()
+	{
+		$query = $this->db->get('proker-img', 5);
+		// menggunakan result array karena data > 1
+		return $query->result_array();
+
+		// NOTES : TINGGAL BUAT PAGINATION
+	}
+
 	public function get_Proker($slug = FALSE)
 	{
 

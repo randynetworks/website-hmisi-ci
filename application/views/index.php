@@ -6,7 +6,7 @@
 
 		<div class="row justify-content-center align-self-center">
 			<div class="col-md-6 intro-info order-md-first order-last">
-				<h2>Student Today<br> Leader<span> Tomorrow.</span></h2>
+				<h2>Berpendidikan,<br> Mulia,<br><span>Dan Suci.</span></h2>
 				<a href="#about" class="btn-get-started scrollto">Get Started</a>
 			</div>
 			<div class="col-md-6 pl-5 intro-img order-md-last order-first">
@@ -76,15 +76,15 @@
 			<div class="row">
 
 				<? foreach ($prokers as $proker) : ?>
-					<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-						<div class="box">
-							<div class="icon" style="background: <?= $proker['bg']; ?>;">
-								<i class="ion-ios-<?= $proker['icon']; ?>" style="color: <?= $proker['color']; ?>;"></i>
-							</div>
-							<h4 class="title"><a href="<?= site_url('proker/' . $proker['slug']); ?>"><?= $proker['title']; ?></a></h4>
-							<p class="description"><?= $proker['text']; ?></p>
+				<div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
+					<div class="box">
+						<div class="icon" style="background: <?= $proker['bg']; ?>;">
+							<i class="ion-ios-<?= $proker['icon']; ?>" style="color: <?= $proker['color']; ?>;"></i>
 						</div>
+						<h4 class="title"><a href="<?= site_url('proker/' . $proker['slug']); ?>"><?= $proker['title']; ?></a></h4>
+						<p class="description"><?= $proker['text']; ?></p>
 					</div>
+				</div>
 				<? endforeach; ?>
 
 			</div>
@@ -184,17 +184,17 @@
 			<br>
 			<div class="row">
 				<? foreach ($news as $new) : ?>
-					<div class="col-lg-5 col-md-6">
-						<div class="about-img">
-							<img src="<?= base_url('assets/img/') . $new['img']; ?>" alt="" class="img-fluid">
-						</div>
+				<div class="col-lg-5 col-md-6">
+					<div class="about-img">
+						<img src="<?= base_url('assets/img/') . $new['img']; ?>" alt="" class="img-fluid">
 					</div>
-					<div class="col-lg-7 col-md-6">
-						<div class="about-content">
-							<h3><?= $new['title']; ?></h3>
-							<p><?= $new['text']; ?></p>
-						</div>
+				</div>
+				<div class="col-lg-7 col-md-6">
+					<div class="about-content">
+						<h3><?= $new['title']; ?></h3>
+						<p><?= $new['text']; ?></p>
 					</div>
+				</div>
 				<? endforeach; ?>
 			</div>
 		</div>
@@ -231,17 +231,17 @@
 
 			<div class="row">
 				<? foreach ($members as $member) : ?>
-					<div class="col-lg-3 col-md-6 wow fadeInUp">
-						<div class="member">
-							<img src="<?= base_url() . '/assets/img/SO/' . $member['img']; ?>" class="img-fluid" alt="">
-							<div class="member-info">
-								<div class="member-info-content">
-									<h4><?= $member['nama-lengkap']; ?></h4>
-									<span><?= $member['jabatan']; ?></span>
-								</div>
+				<div class="col-lg-3 col-md-6 wow fadeInUp">
+					<div class="member">
+						<img src="<?= base_url() . '/assets/img/SO/' . $member['img']; ?>" class="img-fluid" alt="">
+						<div class="member-info">
+							<div class="member-info-content">
+								<h4><?= $member['nama-lengkap']; ?></h4>
+								<span><?= $member['jabatan']; ?></span>
 							</div>
 						</div>
 					</div>
+				</div>
 				<? endforeach; ?>
 			</div>
 		</div>
