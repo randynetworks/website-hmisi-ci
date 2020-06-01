@@ -47,6 +47,7 @@
 						</tbody>
 					</table>
 					<br>
+					<?= $this->pagination->create_links(); ?>
 				</div>
 			</div>
 		</div>

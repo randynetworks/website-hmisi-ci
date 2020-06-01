@@ -36,4 +36,16 @@ class Proker_model extends CI_Model
 		// menggunakan row array karena cuma 1 data
 		return $query->result_array();
 	}
+
+	public function countAllProker()
+	{
+		return $this->db->get('proker-img')->num_rows();
+	}
+
+	public function get_page($limit, $start)
+	{
+		$query = $this->db->get('proker-img', $limit, $start);
+		// menggunakan result array karena data > 1
+		return $query->result_array();
+	}
 }
