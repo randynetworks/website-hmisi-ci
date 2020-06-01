@@ -75,4 +75,35 @@ class Input_Proker extends CI_Controller
 		$this->load->view('admin/input_proker', $data);
 		$this->load->view('templates/dashboard_footer');
 	}
+
+	public function create()
+	{
+
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('text', 'Text', 'required');
+		$this->form_validation->set_rules('slug', 'Slug', 'required');
+		$this->form_validation->set_rules('image', 'Image', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->helper('url');
+
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-warning" role="alert">
+                    Member failed Saved!
+                </div>'
+			);
+		} else {
+			$this->proker_model->set_proker();
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success" role="alert">
+                    Member Saved!
+                </div>'
+			);
+			redirect('Input_Member');
+		}
+	}
 }

@@ -66,24 +66,23 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<?= form_open_multipart('Input_Member/create') ?>
+					<?= form_open_multipart('Input_Proker/create') ?>
 					<div class="card shadow">
 						<div class="card-body mb-4 p-4">
 							<div class="form-group">
-								<label for="fullname">Full Name</label>
-								<input name="full-name" type="text" class="form-control" id="fullname" placeholder="Please Input Full Name Member.">
-							</div>
-							<div class="form-group">
-								<label for="department">Department</label>
-								<input name="depart" type="text" class="form-control" id="department" placeholder="Please Input Department">
-							</div>
-							<div class="form-group">
-
-								<label for="department">Upload Image</label>
+								<label for="img">Upload Image</label>
 								<div class="custom-file">
 									<input name="image" type="file" class="custom-file-input" id="upload-image">
 									<label name="img" class="custom-file-label" for="upload-image">Choose file</label>
 								</div>
+							</div>
+							<div class="form-group">
+								<label for="text">Text</label>
+								<input name="text" type="text" class="form-control" id="text" placeholder="Please Input Text.">
+							</div>
+							<div class="form-group">
+								<label for="slug">Slug</label>
+								<input name="slug" type="text" class="form-control" id="slug" placeholder="Please Input slug.">
 							</div>
 							<div>
 								<button type="submit" class="btn btn-primary"><i class="far fa-save"> Submit</i></button>

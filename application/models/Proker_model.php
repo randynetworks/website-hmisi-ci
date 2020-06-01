@@ -48,4 +48,33 @@ class Proker_model extends CI_Model
 		// menggunakan result array karena data > 1
 		return $query->result_array();
 	}
+
+	public function set_proker()
+	{
+		$this->load->helper('url');
+
+		$foto = $_FILES['image'];
+
+		if ($foto = '') {
+		} else {
+			$config['upload_path'] = './assets/img/proker-img';
+			$config['allowed_types'] = 'jpg|png|jpeg|JPG';
+
+			$this->upload->initialize($config);
+			if (!$this->upload->do_upload('img')) {
+				echo "Failed Upload";
+				die;
+			} else {
+				$foto = $this->upload->data('file_name');
+			}
+		}
+
+		$data = array(
+			'slug' => $this->input->post('slug'),
+			'img' => $foto,
+			'text' => $this->input->post('text')
+		);
+
+		return $this->db->insert('proker-img', $data);
+	}
 }
