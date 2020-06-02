@@ -79,31 +79,44 @@ class Input_Proker extends CI_Controller
 	public function create()
 	{
 
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+		$config['upload_path']          = './assets/img/proker-img';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 2048;
+		$config['max_width']            = 1024;
+		$config['max_height']           = 768;
 
-		$this->form_validation->set_rules('text', 'Text', 'required');
-		$this->form_validation->set_rules('slug', 'Slug', 'required');
-		$this->form_validation->set_rules('image', 'Image', 'required');
+		$this->load->library('upload', $config);
 
-		if ($this->form_validation->run() === FALSE) {
-			$this->load->helper('url');
-
+		if (!$this->upload->do_upload('image')) {
 			$this->session->set_flashdata(
 				'message',
-				'<div class="alert alert-warning" role="alert">
-                    Member failed Saved!
-                </div>'
+				'<div class="alert alert-danger" role="alert">
+				Failed Upload!
+			</div>'
 			);
 		} else {
-			$this->proker_model->set_proker();
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-success" role="alert">
-                    Member Saved!
-                </div>'
+
+			$data = array(
+				'img'  => $this->upload->data(),
+				'slug' => $this->input->post('slug'),
+				'text' => $this->input->post('text')
 			);
-			redirect('Input_Member');
+
+			$this->load->view('upload_success', $data);
 		}
+	}
+
+	public function hapus($id)
+	{
+		$where = array('id' => $id);
+
+		$this->proker_model->hapus_data($where, 'proker-img');
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+                Member deleted!
+            </div>'
+		);
+		redirect('Input_Proker');
 	}
 }

@@ -57,13 +57,12 @@ class Proker_model extends CI_Model
 
 		if ($foto = '') {
 		} else {
-			$config['upload_path'] = './assets/img/proker-img';
+			$config['upload_path'] = '/assets/img/proker-img';
 			$config['allowed_types'] = 'jpg|png|jpeg|JPG';
 
 			$this->upload->initialize($config);
 			if (!$this->upload->do_upload('img')) {
 				echo "Failed Upload";
-				die;
 			} else {
 				$foto = $this->upload->data('file_name');
 			}
@@ -76,5 +75,12 @@ class Proker_model extends CI_Model
 		);
 
 		return $this->db->insert('proker-img', $data);
+	}
+
+	public function hapus_data($where, $table)
+	{
+		$this->load->helper('url');
+		$this->db->where($where);
+		$this->db->delete($table);
 	}
 }
