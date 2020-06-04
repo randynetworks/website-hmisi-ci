@@ -36,8 +36,9 @@
 								<td class="align-middle"><?= $member['nama-lengkap']; ?></td>
 								<td class="align-middle"><?= $member['jabatan']; ?></td>
 								<td class="align-middle">
-									<button href="" class="btn btn-primary"><i class="far fa-edit"> Edit</i></button> |
-									<?= anchor('Input_Member/hapus/' . $member['id'], '<button onclick="javascript: return confirm(\'want to delete?\')" class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>'); ?>
+									<?= anchor('Manage_Member/edit/' . $member['id'], '<button class="btn btn-primary"><i class="far fa-edit"> Edit</i></button>'); ?>
+									|
+									<?= anchor('Manage_Member/hapus/' . $member['id'], '<button onclick="javascript: return confirm(\'want to delete?\')" class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>'); ?>
 
 								</td>
 							</tr>
@@ -65,7 +66,7 @@
 				</div>
 				<div class="modal-body">
 					<!-- input form -->
-					<?= form_open_multipart('Input_Member/create') ?>
+					<?= form_open_multipart('Manage_Member/create') ?>
 					<div class="card shadow">
 						<div class="card-body p-4">
 							<div class="form-group">
@@ -76,13 +77,10 @@
 								<label for="department">Department*</label>
 								<input name="depart" type="text" class="form-control" id="department" placeholder="Please Input Department">
 							</div>
-							<div class="form-group">
+							<div class="form-group ">
 
-								<label for="department">Upload Image*</label>
-								<div class="custom-file">
-									<input name="image" type="file" class="custom-file-input" id="upload-image">
-									<label name="img" class="custom-file-label" for="upload-image">Choose file</label>
-								</div>
+								<label for="image">Upload Image*</label>
+								<input name="image" type="file" class="form-control pb-1" id="upload-image">
 							</div>
 							<div>
 								<button type="submit" class="btn btn-primary"><i class="far fa-save"> Submit</i></button>

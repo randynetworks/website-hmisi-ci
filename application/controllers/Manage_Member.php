@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Input_Member extends CI_Controller
+class Manage_Member extends CI_Controller
 {
 
 
@@ -24,7 +24,7 @@ class Input_Member extends CI_Controller
 	public function index()
 	{
 		// pagination
-		$config['base_url'] = 'http://localhost/website-hmisi-ci/Input_Member/index';
+		$config['base_url'] = 'http://localhost/website-hmisi-ci/Manage_Member/index';
 		$config['total_rows'] = $this->anggota_model->countAllMember();
 		$config['per_page'] = 5;
 
@@ -91,7 +91,7 @@ class Input_Member extends CI_Controller
 		$this->load->view('templates/dashboard_header', $data);
 		$this->load->view('templates/dashboard_sidebar', $data);
 		$this->load->view('templates/dashboard_topbar', $data);
-		$this->load->view('admin/input_member', $data);
+		$this->load->view('admin/manage_member', $data);
 		$this->load->view('templates/dashboard_footer');
 	}
 
@@ -101,43 +101,78 @@ class Input_Member extends CI_Controller
 
 		// helper & Library
 		$this->load->helper('form');
+		$this->load->helper('url');
 		$this->load->library('form_validation');
 
-		// form validation
-		$this->form_validation->set_rules('full-name', 'Full Name', 'required');
-		$this->form_validation->set_rules('depart', 'Department', 'required');
-		// $this->form_validation->set_rules('image', 'Image', 'required');
 
-		// logicm if form validation === False
-		if ($this->form_validation->run() === FALSE) {
-			$this->load->helper('url');
 
-			// message failed saved
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-danger" role="alert">
-                    Member failed Saved!
-				</div>'
-			);
+		// $foto    = $this->upload->data('file_name');
+		$nama	 = $this->input->post('full-name');
+		$jabatan = $this->input->post('depart');
 
-			// redirect save failed
-			redirect('Input_Member');
-		} else {
+		// array for set data
+		$data = array(
+			// 'img'          => $foto,
+			'nama-lengkap' => $nama,
+			'jabatan'      => $jabatan
+		);
 
-			// medel member create data
-			$this->anggota_model->set_member();
+		// medel member create data
+		$this->anggota_model->set_member($data, 'anggota');
 
-			// message success saved
-			$this->session->set_flashdata(
-				'message',
-				'<div class="alert alert-success" role="alert">
-                    Member Saved!
-                </div>'
-			);
+		// message success saved
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+						Member Saved!
+					</div>'
+		);
 
-			// redirect save success
-			redirect('Input_Member');
-		}
+		// redirect save success
+		redirect('Manage_Member');
+
+		// // logicm if form validation === False
+		// if ($this->form_validation->run() === FALSE) {
+
+		// 	// message faled saved
+		// 	$this->session->set_flashdata(
+		// 		'message',
+		// 		'<div class="alert alert-danger" role="alert">
+		//             Member Not Save Saved!
+		//         </div>'
+		// 	);
+
+		// 	// redirect save failed
+		// 	redirect('Input_Member');
+		// } else {
+
+
+
+		// // library upload
+		// $this->load->library('upload', $config);
+
+		// // get data image
+		// $foto = $_FILES['image'];
+		// $config['upload_path'] = './assets/img/SO';
+		// $config['allowed_types'] = 'jpg|png|jpeg|JPG';
+
+		// if (!$this->upload->do_upload('image')) {
+
+		// 	// message failed saved
+		// 	$this->session->set_flashdata(
+		// 		'message',
+		// 		'<div class="alert alert-danger" role="alert">
+		// 		Member failed Saved!, wrong format Image!
+		// 		</div>'
+
+		// 	);
+
+		// 	// redirect save failed
+		// 	redirect('Input_Member');
+		// }
+
+
+
 	}
 
 	public function hapus($id)
@@ -157,6 +192,6 @@ class Input_Member extends CI_Controller
 		);
 
 		// redirect sucsess
-		redirect('Input_Member');
+		redirect('Manage_Member');
 	}
 }

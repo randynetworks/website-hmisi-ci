@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// upload
-$route['Input_Proker/create'] = 'Input_Proker/create';
 
 $route['auth'] = 'auth';
 

@@ -62,7 +62,7 @@
 		<div id="collapsePages" class="collapse hide" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Anggota HMISI:</h6>
-				<a class="collapse-item" href="<?= base_url('Input_Member'); ?>">Member HMISI</a>
+				<a class="collapse-item" href="<?= base_url('Manage_Member'); ?>">Manage Member HMISI</a>
 				<div class="collapse-divider"></div>
 				<h6 class="collapse-header">Other Input:</h6>
 				<a class="collapse-item" href="<?= base_url('Input_Proker'); ?>">Input Proker</a>
