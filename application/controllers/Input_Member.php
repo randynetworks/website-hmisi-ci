@@ -5,124 +5,158 @@ class Input_Member extends CI_Controller
 {
 
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('url_helper');
-        // untuk pagination
-        $this->load->library('pagination');
-        $this->load->model('anggota_model');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+
+		// helper
+		$this->load->helper('url_helper');
+		$this->load->helper('url');
+
+		// library
+		$this->load->library('pagination');
+
+		// model
+		$this->load->model('anggota_model');
+	}
 
 
-    public function index()
-    {
-        // pagination
-        $config['base_url'] = 'http://localhost/website-hmisi-ci/Input_Member/index';
-        $config['total_rows'] = $this->anggota_model->countAllMember();
-        $config['per_page'] = 5;
+	public function index()
+	{
+		// pagination
+		$config['base_url'] = 'http://localhost/website-hmisi-ci/Input_Member/index';
+		$config['total_rows'] = $this->anggota_model->countAllMember();
+		$config['per_page'] = 5;
 
-        // styling pagination
-        $config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
-        $config['full_tag_close'] = '</ul></nav>';
+		// styling pagination
+		$config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
+		$config['full_tag_close'] = '</ul></nav>';
 
-        $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li class="page-item">';
-        $config['first_tag_close'] = '</li>';
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
 
-        $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li class="page-item">';
-        $config['last_tag_close'] = '</li>';
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
 
-        $config['next_link'] = '&raquo';
-        $config['next_tag_open'] = '<li class="page-item">';
-        $config['next_tag_close'] = '</li>';
+		$config['next_link'] = '&raquo';
+		$config['next_tag_open'] = '<li class="page-item">';
+		$config['next_tag_close'] = '</li>';
 
-        $config['prev_link'] = '&laquo';
-        $config['prev_tag_open'] = '<li class="page-item">';
-        $config['prev_tag_close'] = '</li>';
+		$config['prev_link'] = '&laquo';
+		$config['prev_tag_open'] = '<li class="page-item">';
+		$config['prev_tag_close'] = '</li>';
 
-        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-        $config['cur_tag_close'] = '</a></li>';
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
 
-        $config['num_tag_open'] = '<li class="page-item">';
-        $config['num_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li>';
 
-        $config['attributes'] = array('class' => 'page-link');
+		$config['attributes'] = array('class' => 'page-link');
 
-        // initialisasi
-        $this->pagination->initialize($config);
+		// initialisasi
+		$this->pagination->initialize($config);
+		// starter for pagination
+		$data['start'] = $this->uri->segment(3);
 
-        $ses_id = $this->session->userdata('email');
-        $data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
-        $data['title'] = "Member HMISI";
-        $data['start'] = $this->uri->segment(3);
-        $data['members'] = $this->anggota_model->get_page($config['per_page'], $data['start']);
+		// session user
+		$ses_id = $this->session->userdata('email');
+		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+
+		// title member page
+		$data['title'] = "Member HMISI";
+
+		// get data member per page
+		$data['members'] = $this->anggota_model->get_page($config['per_page'], $data['start']);
 
 
+		// logic session login empty
+		if (empty($ses_id)) {
 
-        if (empty($ses_id)) {
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger" role="alert">
+			// message not login
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
 				Oupps, you\'re not Login!
 			</div>'
-            );
-            redirect('auth');
-        }
+			);
+
+			// redirect login failed
+			redirect('auth');
+		}
+
+		// load view
+		$this->load->view('templates/dashboard_header', $data);
+		$this->load->view('templates/dashboard_sidebar', $data);
+		$this->load->view('templates/dashboard_topbar', $data);
+		$this->load->view('admin/input_member', $data);
+		$this->load->view('templates/dashboard_footer');
+	}
 
 
-        $this->load->helper('url');
-        $this->load->view('templates/dashboard_header', $data);
-        $this->load->view('templates/dashboard_sidebar', $data);
-        $this->load->view('templates/dashboard_topbar', $data);
-        $this->load->view('admin/input_member', $data);
-        $this->load->view('templates/dashboard_footer');
-    }
+	public function create()
+	{
 
+		// helper & Library
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 
-    public function create()
-    {
+		// form validation
+		$this->form_validation->set_rules('full-name', 'Full Name', 'required');
+		$this->form_validation->set_rules('depart', 'Department', 'required');
+		// $this->form_validation->set_rules('image', 'Image', 'required');
 
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+		// logicm if form validation === False
+		if ($this->form_validation->run() === FALSE) {
+			$this->load->helper('url');
 
-        $this->form_validation->set_rules('full-name', 'Full Name', 'required');
-        $this->form_validation->set_rules('depart', 'Department', 'required');
-        $this->form_validation->set_rules('image', 'Image', 'required');
-
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->helper('url');
-
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-warning" role="alert">
+			// message failed saved
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
                     Member failed Saved!
-                </div>'
-            );
-        } else {
-            $this->anggota_model->set_member();
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success" role="alert">
+				</div>'
+			);
+
+			// redirect save failed
+			redirect('Input_Member');
+		} else {
+
+			// medel member create data
+			$this->anggota_model->set_member();
+
+			// message success saved
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-success" role="alert">
                     Member Saved!
                 </div>'
-            );
-            redirect('Input_Member');
-        }
-    }
+			);
 
-    public function hapus($id)
-    {
-        $where = array('id' => $id);
+			// redirect save success
+			redirect('Input_Member');
+		}
+	}
 
-        $this->anggota_model->hapus_data($where, 'anggota');
-        $this->session->set_flashdata(
-            'message',
-            '<div class="alert alert-success" role="alert">
+	public function hapus($id)
+	{
+		// select id clicked
+		$where = array('id' => $id);
+
+		// model delete data
+		$this->anggota_model->hapus_data($where, 'anggota');
+
+		// message member deleted
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
                 Member deleted!
             </div>'
-        );
-        redirect('Input_Member');
-    }
+		);
+
+		// redirect sucsess
+		redirect('Input_Member');
+	}
 }
