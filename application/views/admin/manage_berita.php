@@ -72,7 +72,7 @@
 				</div>
 				<div class="modal-body">
 					<!-- input form -->
-					<?= form_open_multipart('Manage_Proker/create') ?>
+					<?= form_open_multipart('Manage_Berita/create') ?>
 					<div class="card shadow">
 						<div class="card-body mb-4 p-4">
 							<div class="form-group">

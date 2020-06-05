@@ -109,12 +109,12 @@ class Manage_Berita extends CI_Controller
 		$this->session->set_flashdata(
 			'message',
 			'<div class="alert alert-success" role="alert">
-						Proker Saved!
+						News Saved!
 					</div>'
 		);
 
 		// redirect save success
-		redirect('Manage_Proker');
+		redirect('Manage_Berita');
 
 		// $config['upload_path']          = './assets/img/proker-img';
 		// $config['allowed_types']        = 'gif|jpg|png';
