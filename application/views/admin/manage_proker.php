@@ -39,7 +39,7 @@
 								<td class="align-middle"><?= $proker['text']; ?></td>
 								<td class="align-middle">
 									<button href="" class="btn btn-primary"><i class="far fa-edit"> Edit</i></button> |
-									<?= anchor('Input_Proker/hapus/' . $proker['id'], '<button onclick="javascript: return confirm(\'want to delete?\')" class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>'); ?>
+									<?= anchor('Manage_Proker/hapus/' . $proker['id'], '<button onclick="javascript: return confirm(\'want to delete?\')" class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>'); ?>
 
 								</td>
 							</tr>
@@ -66,7 +66,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<?= form_open_multipart('Input_Proker/create') ?>
+					<?= form_open_multipart('Manage_Proker/create') ?>
 					<div class="card shadow">
 						<div class="card-body mb-4 p-4">
 							<div class="form-group">
