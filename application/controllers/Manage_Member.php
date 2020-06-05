@@ -194,4 +194,65 @@ class Manage_Member extends CI_Controller
 		// redirect sucsess
 		redirect('Manage_Member');
 	}
+
+	public function edit($id)
+	{
+
+		$ses_id = $this->session->userdata('email');
+		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+
+		$data['title'] = "Edit Member HMISI";
+		$data['members'] = $this->db->get_where('anggota', ['id' => $id])->result_array();
+
+		if (empty($ses_id)) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+			</div>'
+			);
+			redirect('auth');
+		}
+
+
+		$this->load->helper('url');
+		$this->load->view('templates/dashboard_header', $data);
+		$this->load->view('templates/dashboard_sidebar', $data);
+		$this->load->view('templates/dashboard_topbar', $data);
+		$this->load->view('admin/edit_anggota', $data);
+		$this->load->view('templates/dashboard_footer');
+	}
+
+	public function update()
+	{
+		$id           = $this->input->post('id');
+		// $foto    = $this->upload->data('file_name');
+		$nama_lengkap = $this->input->post('nama');
+		$jabatan 	  = $this->input->post('jabatan');
+
+		// array for set data
+		$data = array(
+			// 'img'          => $foto,
+			'nama-lengkap' => $nama_lengkap,
+			'jabatan' => $jabatan
+		);
+
+		$where = array(
+			'id' => $id
+		);
+
+		// medel member create data
+		$this->anggota_model->update_data($where, $data, 'anggota');
+
+		// message success saved
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+						Member is Changed!
+					</div>'
+		);
+
+		// redirect save success
+		redirect('Manage_Member');
+	}
 }
