@@ -144,4 +144,65 @@ class Manage_Proker extends CI_Controller
 		);
 		redirect('Manage_Proker');
 	}
+
+	public function edit($id)
+	{
+
+		$ses_id = $this->session->userdata('email');
+		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+
+		$data['title'] = "Edit Image Proker HMISI";
+		$data['prokers'] = $this->db->get_where('proker-img', ['id' => $id])->result_array();
+
+		if (empty($ses_id)) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+			</div>'
+			);
+			redirect('auth');
+		}
+
+
+		$this->load->helper('url');
+		$this->load->view('templates/dashboard_header', $data);
+		$this->load->view('templates/dashboard_sidebar', $data);
+		$this->load->view('templates/dashboard_topbar', $data);
+		$this->load->view('admin/edit_proker', $data);
+		$this->load->view('templates/dashboard_footer');
+	}
+
+	public function update()
+	{
+		$id           = $this->input->post('id');
+		// $foto    = $this->upload->data('file_name');
+		$slug 		  = $this->input->post('slug');
+		$text 	  	  = $this->input->post('text');
+
+		// array for set data
+		$data = array(
+			// 'img'          => $foto,
+			'slug' => $slug,
+			'text' => $text
+		);
+
+		$where = array(
+			'id' => $id
+		);
+
+		// medel member create data
+		$this->proker_model->update_data($where, $data, 'proker-img');
+
+		// message success saved
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+						Image Proker is Changed!
+					</div>'
+		);
+
+		// redirect save success
+		redirect('Manage_Proker');
+	}
 }
