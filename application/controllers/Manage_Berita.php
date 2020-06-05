@@ -137,6 +137,34 @@ class Manage_Berita extends CI_Controller
 		// }
 	}
 
+	public function edit($id)
+	{
+
+		$ses_id = $this->session->userdata('email');
+		$data['user'] = $this->db->get_where('user', ['email' => $ses_id])->row_array();
+
+		$data['title'] = "Edit Berita HMISI";
+		$data['news'] = $this->db->get_where('news', ['id' => $id])->result_array();
+
+		if (empty($ses_id)) {
+			$this->session->set_flashdata(
+				'message',
+				'<div class="alert alert-danger" role="alert">
+				Oupps, you\'re not Login!
+			</div>'
+			);
+			redirect('auth');
+		}
+
+
+		$this->load->helper('url');
+		$this->load->view('templates/dashboard_header', $data);
+		$this->load->view('templates/dashboard_sidebar', $data);
+		$this->load->view('templates/dashboard_topbar', $data);
+		$this->load->view('admin/edit_berita', $data);
+		$this->load->view('templates/dashboard_footer');
+	}
+
 	public function hapus($id)
 	{
 		$where = array('id' => $id);

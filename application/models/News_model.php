@@ -48,4 +48,10 @@ class News_model extends CI_Model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	public function edit_news($where, $table)
+	{
+		$this->load->helper('url');
+		return $this->db->get_where($table, $where)->row_array();
+	}
 }

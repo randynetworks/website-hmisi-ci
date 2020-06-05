@@ -43,7 +43,8 @@
 								<td class="align-middle"><?= $new['title']; ?></td>
 								<td class="align-middle"><?= $new['text']; ?></td>
 								<td class="align-middle">
-									<button href="" class="btn btn-primary"><i class="far fa-edit"> Edit</i></button> |
+									<?= anchor('Manage_Berita/edit/' . $new['id'], '<button class="btn btn-primary"><i class="far fa-edit"> Edit</i></button>'); ?>
+									|
 									<?= anchor('Manage_Berita/hapus/' . $new['id'], '<button onclick="javascript: return confirm(\'want to delete?\')" class="btn btn-danger"><i class="far fa-trash-alt"> Del</i></button>'); ?>
 
 								</td>
