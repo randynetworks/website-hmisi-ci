@@ -49,32 +49,9 @@ class Proker_model extends CI_Model
 		return $query->result_array();
 	}
 
-	public function set_proker()
+	public function set_proker($data, $table)
 	{
-		$this->load->helper('url');
-
-		$foto = $_FILES['image'];
-
-		if ($foto = '') {
-		} else {
-			$config['upload_path'] = '/assets/img/proker-img';
-			$config['allowed_types'] = 'jpg|png|jpeg|JPG';
-
-			$this->upload->initialize($config);
-			if (!$this->upload->do_upload('img')) {
-				echo "Failed Upload";
-			} else {
-				$foto = $this->upload->data('file_name');
-			}
-		}
-
-		$data = array(
-			'slug' => $this->input->post('slug'),
-			'img' => $foto,
-			'text' => $this->input->post('text')
-		);
-
-		return $this->db->insert('proker-img', $data);
+		return $this->db->insert($table, $data);
 	}
 
 	public function hapus_data($where, $table)
@@ -82,5 +59,11 @@ class Proker_model extends CI_Model
 		$this->load->helper('url');
 		$this->db->where($where);
 		$this->db->delete($table);
+	}
+
+	public function update_data($where, $data, $table)
+	{
+		$this->db->where($where);
+		return $this->db->update($table, $data);
 	}
 }

@@ -8,18 +8,19 @@
 		<?= $this->session->flashdata('message'); ?>
 
 		<!-- data table -->
-		<? foreach ($members as $member) : ?>
+		<? foreach ($prokers as $proker) : ?>
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">Edit Data <?= $member['nama-lengkap']; ?></h6>
+				<h6 class="m-0 font-weight-bold text-primary">Edit Data Image Proker</h6>
 			</div>
 			<div class="card-body mb-4 p-4">
 				<!-- input form -->
-				<?= form_open_multipart('Manage_Member/update') ?>
+				<?= form_open_multipart('Manage_Proker/update') ?>
 				<div class="form-group">
-					<label for="slug">Id</label>
-					<input name="id" type="text" class="form-control" id="slug" value="<?= $member['id']; ?>" readonly>
+					<label for="id_image">Id</label>
+					<input name="id" type="text" class="form-control" id="id_image" value="<?= $proker['id']; ?>" readonly>
 				</div>
+
 				<div class="form-group">
 					<label for="img">Upload Image</label>
 					<div class="custom-file">
@@ -27,13 +28,14 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="slug">Nama Lengkap</label>
-					<input name="nama" type="text" class="form-control" id="slug" value="<?= $member['nama-lengkap']; ?>">
+					<label for="slug">Slug</label>
+					<input name="slug" type="text" class="form-control" id="slug" value="<?= $proker['slug']; ?>">
 				</div>
 				<div class="form-group">
-					<label for="slug">Jabatan</label>
-					<input name="jabatan" type="text" class="form-control" id="slug" value="<?= $member['jabatan']; ?>">
+					<label for="text">Text</label>
+					<input name="text" type="text" class="form-control" id="text" value="<?= $proker['text']; ?>">
 				</div>
+
 
 				<button type="submit" class="btn btn-primary">Save</button>
 				<?= form_close(); ?><br>

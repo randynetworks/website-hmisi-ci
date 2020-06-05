@@ -37,10 +37,27 @@ class News_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function set_news($data, $table)
+	{
+		return $this->db->insert($table, $data);
+	}
+
 	public function hapus_data($where, $table)
 	{
 		$this->load->helper('url');
 		$this->db->where($where);
 		$this->db->delete($table);
+	}
+
+	public function edit_news($where, $table)
+	{
+		$this->load->helper('url');
+		return $this->db->get_where($table, $where)->row_array();
+	}
+
+	public function update_news($where, $data, $table)
+	{
+		$this->db->where($where);
+		return $this->db->update($table, $data);
 	}
 }
