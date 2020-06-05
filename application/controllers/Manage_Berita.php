@@ -85,8 +85,6 @@ class Manage_Berita extends CI_Controller
 		$this->load->helper('url');
 		$this->load->library('form_validation');
 
-
-
 		// $foto    = $this->upload->data('file_name');
 		$slug 		= $this->input->post('slug');
 		$create_by 	= $this->input->post('create_by');
@@ -163,6 +161,43 @@ class Manage_Berita extends CI_Controller
 		$this->load->view('templates/dashboard_topbar', $data);
 		$this->load->view('admin/edit_berita', $data);
 		$this->load->view('templates/dashboard_footer');
+	}
+
+	public function update()
+	{
+		$id         = $this->input->post('id');
+		// $foto    = $this->upload->data('file_name');
+		$slug 		= $this->input->post('slug');
+		$create_by 	= $this->input->post('create_by');
+		$title 		= $this->input->post('title');
+		$text 		= $this->input->post('text');
+
+		// array for set data
+		$data = array(
+			// 'img'          => $foto,
+			'slug' => $slug,
+			'create_by' => $create_by,
+			'title' => $title,
+			'text' => $text
+		);
+
+		$where = array(
+			'id' => $id
+		);
+
+		// medel member create data
+		$this->news_model->update_news($where, $data, 'news');
+
+		// message success saved
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success" role="alert">
+						News is Changed!
+					</div>'
+		);
+
+		// redirect save success
+		redirect('Manage_Berita');
 	}
 
 	public function hapus($id)

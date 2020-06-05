@@ -54,4 +54,10 @@ class News_model extends CI_Model
 		$this->load->helper('url');
 		return $this->db->get_where($table, $where)->row_array();
 	}
+
+	public function update_news($where, $data, $table)
+	{
+		$this->db->where($where);
+		return $this->db->update($table, $data);
+	}
 }

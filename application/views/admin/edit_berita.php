@@ -17,6 +17,10 @@
 				<!-- input form -->
 				<?= form_open_multipart('Manage_Berita/update') ?>
 				<div class="form-group">
+					<label for="slug">Id</label>
+					<input name="id" type="text" class="form-control" id="slug" value="<?= $new['id']; ?>" readonly>
+				</div>
+				<div class="form-group">
 					<label for="img">Upload Image</label>
 					<div class="custom-file">
 						<input name="img" type="file" class="form-control" id="upload-image" value="<?= $new['img']; ?>">
@@ -36,18 +40,17 @@
 				</div>
 				<div class=" form-group">
 					<label for="text">Text</label>
-					<textarea name="text" class="form-control"><?= $new['text']; ?></textarea>
+					<textarea rows="5" name="text" class="form-control"><?= $new['text']; ?></textarea>
 				</div>
 
-				<button type="reset" class="btn btn-danger">Reset</button>
 				<button type="submit" class="btn btn-primary">Save</button>
-				<?= form_close(); ?>
-
+				<?= form_close(); ?><br>
 			</div>
+
 		</div>
 
+		<? endforeach; ?>
 	</div>
-	<? endforeach ?>
 	<!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
